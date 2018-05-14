@@ -89,7 +89,7 @@ public class Render {
             HSSFCell cell = row.createCell(i, cellType);
 
             ConditionalStyle conditionalStyle =
-                    poiExporter.fetchConditionalStyle(perCellStyleHolder, val,cellStyle, col_index-1);
+                    poiExporter.fetchConditionalStyle(perCellStyleHolder,valueList, val,cellStyle, col_index-1);
             styleList.add(conditionalStyle);
 
             cell.setCellStyle(cellStyle);
@@ -104,7 +104,7 @@ public class Render {
             HSSFCell cell = row.getCell(i);
             HSSFCellStyle cellStyle = cell.getCellStyle();
 
-            cellStyle = rowCellStyleReRender.reRender(poiExporter.getWorkbook(), cellStyle, null, col_index - 1);
+            cellStyle = rowCellStyleReRender.reRender(poiExporter.getWorkbook(), cellStyle, valueList,null, col_index - 1);
 
             cell.setCellStyle(cellStyle);
         }

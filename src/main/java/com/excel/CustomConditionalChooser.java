@@ -6,10 +6,12 @@ package com.excel;
 
 import com.excel.poi.chooser.ConditionalChooser;
 
+import java.util.List;
+
 public class CustomConditionalChooser implements ConditionalChooser {
 
     @Override
-    public boolean doConditionalChoose(Object input, int row) {
+    public boolean doConditionalChoose(List<Object> valueList,Object input, int row) {
         return row%2 == 0 ;
     }
 

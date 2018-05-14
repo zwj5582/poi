@@ -110,8 +110,8 @@ public class PoiExporter {
         return poiContext.createCellStyle(type,index);
     }
 
-    public ConditionalStyle fetchConditionalStyle(PerCellStyleHolder perCellStyleHolder, Object val, HSSFCellStyle cellStyle, int colIndex) {
-        return poiContext.fetchConditionalStyle(val, cellStyle, perCellStyleHolder,colIndex);
+    public ConditionalStyle fetchConditionalStyle(PerCellStyleHolder perCellStyleHolder, List<Object> valueList, Object val, HSSFCellStyle cellStyle, int colIndex) {
+        return poiContext.fetchConditionalStyle(valueList, val, cellStyle, perCellStyleHolder,colIndex);
     }
 
     public PerCellStyleHolder fetchPerCellStyleHolder(int index) {

@@ -4,8 +4,10 @@
 
 package com.excel.poi.chooser;
 
+import java.util.List;
+
 public interface ConditionalChooser {
 
-    boolean doConditionalChoose(Object input, int row);
+    boolean doConditionalChoose(List<Object> valueList , Object input, int row);
 
 }

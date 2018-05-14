@@ -7,11 +7,13 @@ package com.excel.poi.chooser;
 import com.excel.poi.annotation.ConditionalStyle;
 import com.excel.poi.annotation.DEFAULT;
 
+import java.util.List;
+
 public class CellStyleChooser {
 
     public static final ConditionalChooser ALWAYS_TRUE = new ConditionalChooser() {
         @Override
-        public boolean doConditionalChoose(Object input, int row) {
+        public boolean doConditionalChoose(List<Object> valueList, Object input, int row) {
             return true;
         }
     };
@@ -30,8 +32,8 @@ public class CellStyleChooser {
         this.chooser = chooser;
     }
 
-    public ConditionalStyle fetchCellStyle(Object input, int row){
-        return chooser.doConditionalChoose(input,row) ? TRUE : FALSE;
+    public ConditionalStyle fetchCellStyle(List<Object> valueList,Object input, int row){
+        return chooser.doConditionalChoose(valueList,input,row) ? TRUE : FALSE;
     }
 
 }

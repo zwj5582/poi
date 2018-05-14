@@ -65,11 +65,11 @@ public class PoiContext {
         return entityProperties.get(fieldName);
     }
 
-    public ConditionalStyle fetchConditionalStyle(Object val, HSSFCellStyle cellStyle, PerCellStyleHolder perCellStyleHolder, int col_index) {
+    public ConditionalStyle fetchConditionalStyle(List<Object> valueList, Object val, HSSFCellStyle cellStyle, PerCellStyleHolder perCellStyleHolder, int col_index) {
         CellStyleReRender render = perCellStyleHolder.getRender();
-        render.reRender(workbook, cellStyle, val, col_index);
+        render.reRender(workbook, cellStyle, valueList, val, col_index);
         CellStyleChooser chooser = perCellStyleHolder.getChooser();
-        return chooser.fetchCellStyle(val, col_index);
+        return chooser.fetchCellStyle(valueList,val, col_index);
     }
 
 

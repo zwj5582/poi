@@ -41,7 +41,7 @@ public class CellStyleReRender {
         this.styleList = styleList;
     }
 
-    public HSSFCellStyle reRender(Workbook workbook, HSSFCellStyle cellStyle, Object input, int rowNum){
+    public HSSFCellStyle reRender(Workbook workbook, HSSFCellStyle cellStyle, List<Object> valueList, Object input, int rowNum){
         if (!styleList.isEmpty()){
             for (ConditionalStyle conditionalStyle : styleList) {
                 doRender(workbook, cellStyle, conditionalStyle);
@@ -49,7 +49,7 @@ public class CellStyleReRender {
             return cellStyle;
         }
         for ( CellStyleChooser styleChooser : choosers ) {
-            ConditionalStyle conditionalStyle = styleChooser.fetchCellStyle(input,rowNum);
+            ConditionalStyle conditionalStyle = styleChooser.fetchCellStyle(valueList,input,rowNum);
             doRender(workbook, cellStyle, conditionalStyle);
         }
         return cellStyle;
